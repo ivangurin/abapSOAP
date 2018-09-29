@@ -1,0 +1,18 @@
+<xsl:transform xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:sap="http://www.sap.com/sapxsl" version="1.0">
+
+  <xsl:strip-space elements="*"/>
+
+  <xsl:template match="/">
+
+    <soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/">
+      <soap:Header>
+        <xsl:value-of disable-output-escaping="yes" select="//DATA/HEADER"/>
+      </soap:Header>
+      <soap:Body>
+        <xsl:value-of disable-output-escaping="yes" select="//DATA/BODY"/>
+      </soap:Body>
+    </soap:Envelope>
+
+  </xsl:template>
+
+</xsl:transform>
