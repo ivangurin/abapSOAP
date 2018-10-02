@@ -3,7 +3,7 @@
 *----------------------------------------------------------------------*
 *
 *----------------------------------------------------------------------*
-class zcl_soap_static definition
+class ZCL_SOAP_STATIC definition
   public
   final
   create public .
@@ -24,30 +24,30 @@ public section.
           detail      type string,
         end of ts_fault .
 
-  constants field_action type string value 'SOAPAction'. "#EC NOTEXT
-  constants content_type type string value 'text/xml;charset=UTF-8'. "#EC NOTEXT
+  constants FIELD_ACTION type STRING value 'SOAPAction' ##NO_TEXT.
+  constants CONTENT_TYPE type STRING value 'text/xml;charset=UTF-8' ##NO_TEXT.
 
-  class-methods envelope_data2xml
+  class-methods ENVELOPE_DATA2XML
     importing
-      !is_envelope type ts_envelope
+      !IS_ENVELOPE type TS_ENVELOPE
     returning
-      value(e_xml) type string
+      value(E_XML) type STRING
     raising
-      zcx_generic .
-  class-methods envelope_xml2data
+      ZCX_GENERIC .
+  class-methods ENVELOPE_XML2DATA
     importing
-      !i_xml type string
+      !I_XML type STRING
     returning
-      value(es_data) type ts_envelope
+      value(ES_DATA) type TS_ENVELOPE
     raising
-      zcx_generic .
-  class-methods fault_xml2data
+      ZCX_GENERIC .
+  class-methods FAULT_XML2DATA
     importing
-      !i_xml type string
+      !I_XML type STRING
     returning
-      value(es_data) type ts_fault
+      value(ES_DATA) type TS_FAULT
     raising
-      zcx_generic .
+      ZCX_GENERIC .
   protected section.
 *"* protected components of class ZCL_SOAP_STATIC
 *"* do not include other source files here!!!

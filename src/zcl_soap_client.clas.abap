@@ -3,46 +3,46 @@
 *----------------------------------------------------------------------*
 *
 *----------------------------------------------------------------------*
-class ZCL_SOAP_CLIENT definition
+class zcl_soap_client definition
   public
   final
   create public .
 
 *"* public components of class ZCL_SOAP_CLIENT
 *"* do not include other source files here!!!
-public section.
+  public section.
 
-  data URL type STRING read-only .
-  data ACTION type STRING read-only .
-  data TIMEOUT type I read-only value '60' ##NO_TEXT.                                  " .
+    data url type string read-only .
+    data action type string read-only .
+    data timeout type i read-only value '60' ##NO_TEXT.                                  " .
 
-  methods CONSTRUCTOR
-    importing
-      !I_URL type STRING optional
-      !I_ACTION type STRING optional
-    preferred parameter I_URL
-    raising
-      ZCX_GENERIC .
-  methods SET_URL
-    importing
-      !I_URL type STRING
-    raising
-      ZCX_GENERIC .
-  methods SET_ACTION
-    importing
-      !I_ACTION type STRING
-    raising
-      ZCX_GENERIC .
-  methods SET_TIMEOUT
-    importing
-      !I_TIMEOUT type I .
-  methods SEND
-    importing
-      !I_REQUEST type SIMPLE
-    returning
-      value(E_RESPONSE) type STRING
-    raising
-      ZCX_GENERIC .
+    methods constructor
+      importing
+        !i_url    type string optional
+        !i_action type string optional
+          preferred parameter i_url
+      raising
+        zcx_generic .
+    methods set_url
+      importing
+        !i_url type simple
+      raising
+        zcx_generic .
+    methods set_action
+      importing
+        !i_action type simple
+      raising
+        zcx_generic .
+    methods set_timeout
+      importing
+        !i_timeout type i .
+    methods send
+      importing
+        !i_request        type simple
+      returning
+        value(e_response) type string
+      raising
+        zcx_generic .
   protected section.
 *"* protected components of class ZCL_SOAP_CLIENT
 *"* do not include other source files here!!!
