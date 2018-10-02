@@ -1,0 +1,31 @@
+<xsl:transform xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:sap="http://www.sap.com/sapxsl" xmlns:asx="http://www.sap.com/abapxml" xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" version="1.0">
+
+  <xsl:strip-space elements="*"/>
+
+  <xsl:template match="/SOAP-ENV:Envelope/SOAP-ENV:Body/SOAP-ENV:Fault">
+
+    <asx:abap>
+      <asx:values>
+
+        <FAULT>
+
+          <FAULTCODE>
+            <xsl:value-of select="faultcode"/>
+          </FAULTCODE>
+
+          <FAULTSTRING>
+            <xsl:value-of select="faultstring"/>
+          </FAULTSTRING>
+
+          <DETAIL>
+            <xsl:value-of select="detail"/>
+          </DETAIL>
+
+        </FAULT>
+
+      </asx:values>
+    </asx:abap>
+
+  </xsl:template>
+
+</xsl:transform>
